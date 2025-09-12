@@ -4,7 +4,7 @@
  * @returns {string[]}
  */
 export function normalizeGenres(raw) {
-  if (Array.isArray(raw)) return raw;
-  if (typeof raw === 'string') return [raw];
+  if (Array.isArray(raw)) return raw.map(g => g.toString());
+  if (typeof raw === 'string' || typeof raw === 'number') return [String(raw)];
   return [];
 }
