@@ -2,6 +2,8 @@ import { PODCASTS } from './data.js';
 import { createGrid } from './views/createGrid.js';
 import { createModal } from './components/createModal.js';
 import { normalizeGenres } from './utils/GenreService.js';
+console.log('PODCASTS:', PODCASTS);
+
 
 // Map raw podcast data into a normalized object
 function mapPodcast(raw) {
