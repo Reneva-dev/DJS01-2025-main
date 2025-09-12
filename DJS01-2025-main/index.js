@@ -1,4 +1,4 @@
-import { PODCASTS } from './data.js';
+import { podcasts } from './data.js';
 import { createGrid } from './views/createGrid.js';
 import { createModal } from './components/createModal.js';
 import { normalizeGenres } from './utils/GenreService.js';
