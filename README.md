@@ -1,5 +1,4 @@
 🎙️ PodcastApp
-
 📝 Project Description
 
 PodcastApp is a responsive web application that lets users browse, explore, and learn more about podcasts. Users can view podcast previews on a landing page and click on individual podcasts to see detailed information in a modal view, including cover images, descriptions, genres, last updated dates, and season/episode counts.
@@ -75,7 +74,7 @@ cd DJS01-2025-MAIN
 
 Open index.html using a Live Server or directly in a browser.
 
-Make sure Tailwind CSS CDN is included for styling.
+Ensure Tailwind CSS CDN is included for styling.
 
 🚀 Usage
 
@@ -99,7 +98,7 @@ Modal stacks content vertically on mobile for readability.
 
 (Add screenshots or GIFs showing the landing page and modal view here)
 
-🚧 Future Improvements
+**🚧 Future Improvements
 
 🔎 Add search/filter functionality for genres or podcast titles
 
@@ -111,4 +110,4 @@ Modal stacks content vertically on mobile for readability.
 
 Mobile image sizing might still require minor tweaks
 
-Season/episode info depends on provided dataset
+Season/episode info depends on the provided dataset
