@@ -1,4 +1,4 @@
-import { createPodcastCard } from '../components/createPodcastCard.js';
+import { createPodcastCard } from './components/createPodcastCard.js';
 
 /**
  * Render grid of podcast cards into container.
