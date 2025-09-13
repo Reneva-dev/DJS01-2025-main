@@ -1,10 +1,20 @@
+// utils/GenreService.js
+
 /**
- * Normalize genres into a consistent array of strings.
- * @param {any} raw
- * @returns {string[]}
+ * Service to map genre IDs to names.
  */
-export function normalizeGenres(raw) {
-  if (Array.isArray(raw)) return raw.map(g => g.toString());
-  if (typeof raw === 'string' || typeof raw === 'number') return [String(raw)];
-  return [];
+export class GenreService {
+  constructor(genres) {
+    this.genreMap = new Map(genres.map(g => [String(g.id), g.title]));
+  }
+
+  /**
+   * Get genre names for a podcast.
+   * @param {Array<number|string>} ids
+   * @returns {string[]}
+   */
+  getNames(ids) {
+    if (!ids) return [];
+    return ids.map(id => this.genreMap.get(String(id)) || `Unknown (${id})`);
+  }
 }
