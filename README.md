@@ -1,4 +1,5 @@
 🎙️ PodcastApp
+
 📝 Project Description
 
 PodcastApp is a responsive web application that lets users browse, explore, and learn more about podcasts. Users can view podcast previews on a landing page and click on individual podcasts to see detailed information in a modal view, including cover images, descriptions, genres, last updated dates, and season/episode counts.
