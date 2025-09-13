@@ -8,8 +8,17 @@ import { createPodcastCard } from '../components/createPodcastCard.js';
  */
 export function createGrid(container, podcasts, onSelect) {
   container.innerHTML = ''; // clear previous
+
   podcasts.forEach(podcast => {
-    const card = createPodcastCard(podcast, onSelect);
+    // Normalize property names so components don't break
+    const normalizedPodcast = {
+      ...podcast,
+      image: podcast.image || podcast.cover || '',        // always have .image
+      updated: podcast.updated || podcast.lastUpdated || null, // always have .updated
+    };
+
+    const card = createPodcastCard(normalizedPodcast, onSelect);
     container.appendChild(card);
   });
 }
+
