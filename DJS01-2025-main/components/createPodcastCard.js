@@ -12,33 +12,17 @@ export function createPodcastCard(podcast, onClick) {
   const seasonCount = seasonData ? seasonData.seasonDetails.length : podcast.seasons || 0;
 
   const card = document.createElement('div');
-  card.className = `
-    w-full
-    bg-white 
-    rounded-lg 
-    shadow-md 
-    overflow-hidden 
-    hover:shadow-lg 
-    transition 
-    cursor-pointer 
-    flex 
-    flex-col
-  `;
+ card.className = 'bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition cursor-pointer flex flex-col mx-auto w-full max-w-sm';
 
-  card.innerHTML = `
-    <img 
-      src="${podcast.cover}" 
-      alt="${podcast.title}" 
-      class="w-full h-32 object-cover rounded-t-lg"
-    >
-    <div class="p-4 flex flex-col gap-2">
-      <h3 class="text-lg font-semibold truncate">${podcast.title}</h3>
-      <p class="text-sm text-gray-600">${podcast.genres.join(' • ')}</p>
-      <small class="text-gray-500">
-        ${seasonCount} season${seasonCount === 1 ? '' : 's'} • Updated ${formatDateHuman(podcast.lastUpdated)}
-      </small>
-    </div>
-  `;
+card.innerHTML = `
+  <img src="${podcast.cover}" alt="${podcast.title}" class="w-full h-48 sm:h-40 md:h-32 object-cover">
+  <div class="p-4 flex flex-col gap-2">
+    <h3 class="text-lg font-semibold">${podcast.title}</h3>
+    <p class="text-sm text-gray-600">${podcast.genres.join(' • ')}</p>
+    <small class="text-gray-500">${seasonCount} season(s) • Updated ${formatDateHuman(podcast.lastUpdated)}</small>
+  </div>
+`;
+
 
   card.addEventListener('click', () => onClick(podcast));
   return card;
