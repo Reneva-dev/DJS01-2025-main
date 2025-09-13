@@ -1,4 +1,5 @@
 import { formatDateHuman } from '../utils/DateUtils.js';
+import { seasons } from '../data.js';
 
 /**
  * Create a podcast preview card for the grid.
@@ -7,23 +8,19 @@ import { formatDateHuman } from '../utils/DateUtils.js';
  * @returns {HTMLElement}
  */
 export function createPodcastCard(podcast, onClick) {
+  // Find season info for this podcast
+  const seasonData = seasons.find(s => s.id === podcast.id);
+  const seasonCount = seasonData ? seasonData.seasonDetails.length : podcast.seasons || 0;
+
   const card = document.createElement('div');
-  card.className = `
-    bg-white rounded-lg shadow-md p-3 cursor-pointer 
-    hover:shadow-lg transition 
-    flex flex-col items-center text-center
-    h-64 w-full
-  `;
+  card.className = 'bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition cursor-pointer flex flex-col';
 
   card.innerHTML = `
-    <img src="${podcast.cover}" alt="${podcast.title}"
-      class="w-24 h-24 object-cover rounded mb-2">
-    <div class="flex flex-col justify-between flex-grow">
-      <h3 class="text-sm font-semibold line-clamp-2">${podcast.title}</h3>
-      <p class="text-xs text-gray-500 mt-1">${podcast.genres.join(' • ')}</p>
-      <small class="text-xs text-gray-400 mt-2 block">
-        ${podcast.seasons.length} season(s) • Updated ${formatDateHuman(podcast.lastUpdated)}
-      </small>
+    <img src="${podcast.cover}" alt="${podcast.title}" class="w-full h-40 object-cover">
+    <div class="p-4 flex flex-col gap-2">
+      <h3 class="text-lg font-semibold">${podcast.title}</h3>
+      <p class="text-sm text-gray-600">${podcast.genres.join(' • ')}</p>
+      <small class="text-gray-500">${seasonCount} season(s) • Updated ${formatDateHuman(podcast.lastUpdated)}</small>
     </div>
   `;
 
