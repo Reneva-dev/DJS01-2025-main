@@ -20,7 +20,7 @@ export function createPodcastCard(podcast, onClick) {
   card.innerHTML = `
     <!-- Image with 16:9 aspect ratio -->
     <div class="w-full relative pt-[56.25%] overflow-hidden">
-      <img src="${podcast.cover}" alt="${podcast.title}" class="absolute top-0 left-0 w-full h-full object-cover">
+      <img src="${podcast.cover}" alt="${podcast.title}" class="absolute top-0 left-0 w-full h-full object-contain">
     </div>
 
     <!-- Card content -->

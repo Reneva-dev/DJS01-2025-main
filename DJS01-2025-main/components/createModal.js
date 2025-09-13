@@ -25,7 +25,7 @@ export function createModal(podcast, onClose) {
       <!-- Cover + Description -->
       <div class="flex flex-col md:flex-row gap-4 mb-6">
         <img src="${podcast.cover}" alt="${podcast.title}" 
-          class="w-48 h-48 object-cover rounded">
+          class="w-48 h-48 object-contain rounded">
         <div>
         <h4 class="text-md font-semibold mb-2">Description</h4>
           <p class="text-gray-700 mb-2">${podcast.description}</p>
