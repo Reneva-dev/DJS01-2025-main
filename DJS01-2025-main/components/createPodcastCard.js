@@ -16,7 +16,7 @@ export function createPodcastCard(podcast, onClick) {
   card.className = 'bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition cursor-pointer flex flex-col';
 
   card.innerHTML = `
-    <img src="${podcast.cover}" alt="${podcast.title}" class="w-full h-32 object-cover">
+    <img src="${podcast.cover}" alt="${podcast.title}" class="w-full h-22 object-cover">
     <div class="p-4 flex flex-col gap-2">
       <h3 class="text-lg font-semibold">${podcast.title}</h3>
       <p class="text-sm text-gray-600">${podcast.genres.join(' • ')}</p>
