@@ -18,6 +18,7 @@ Built with vanilla JavaScript and Tailwind CSS, this project follows SOLID princ
 🚀 Live Server – for local development and testing
 
 ✨ **Features**
+
 📄 Landing Page
 
 Displays a grid of podcast cards
