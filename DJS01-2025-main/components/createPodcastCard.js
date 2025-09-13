@@ -8,7 +8,6 @@ import { seasons } from '../data.js';
  * @returns {HTMLElement}
  */
 export function createPodcastCard(podcast, onClick) {
-  // Find season info for this podcast
   const seasonData = seasons.find(s => s.id === podcast.id);
   const seasonCount = seasonData ? seasonData.seasonDetails.length : podcast.seasons || 0;
 
@@ -44,4 +43,5 @@ export function createPodcastCard(podcast, onClick) {
   card.addEventListener('click', () => onClick(podcast));
   return card;
 }
+
 
