@@ -27,6 +27,7 @@ export function createModal(podcast, onClose) {
         <img src="${podcast.cover}" alt="${podcast.title}" 
           class="w-48 h-48 object-cover rounded">
         <div>
+        <h4 class="text-md font-semibold mb-2">Description</h4>
           <p class="text-gray-700 mb-2">${podcast.description}</p>
           <div class="flex flex-wrap gap-2 mb-2">
             ${podcast.genres.map(g => `<span class="px-2 py-1 text-xs bg-gray-200 rounded">${g}</span>`).join('')}
