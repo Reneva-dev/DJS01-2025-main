@@ -1,4 +1,5 @@
 import { formatDateHuman } from '../utils/DateUtils.js';
+import { seasons } from '../data.js';
 
 /**
  * Create a modal with detailed podcast info.
@@ -7,50 +8,50 @@ import { formatDateHuman } from '../utils/DateUtils.js';
  * @returns {HTMLElement}
  */
 export function createModal(podcast, onClose) {
+  // Find season data for this podcast
+  const seasonData = seasons.find(s => s.id === podcast.id);
+
   const modal = document.createElement('div');
-  modal.className = 'fixed inset-0 flex items-center justify-center z-50';
+  modal.className = 'modal fixed inset-0 flex items-center justify-center z-50';
+
   modal.innerHTML = `
-    <!-- Backdrop -->
-    <div class="absolute inset-0 bg-black bg-opacity-50 modal-backdrop"></div>
-
-    <!-- Modal box -->
-    <div class="relative bg-white rounded-2xl shadow-xl p-6 w-11/12 max-w-3xl max-h-[90vh] overflow-y-auto">
-      <!-- Close button -->
-      <button class="close absolute top-3 right-3 text-gray-500 hover:text-gray-700 text-xl">✕</button>
-
+    <div class="modal-backdrop absolute inset-0 bg-black bg-opacity-50"></div>
+    <div class="modal-content relative bg-white rounded-lg p-6 max-w-3xl w-full mx-4 max-h-[90vh] overflow-y-auto">
+      <button class="close absolute top-2 right-2 text-gray-500 hover:text-black">✕</button>
+      
       <!-- Title -->
       <h2 class="text-2xl font-bold mb-4">${podcast.title}</h2>
 
-      <!-- Top row: cover + description -->
-      <div class="flex flex-col md:flex-row gap-6 mb-6">
-        <img class="w-44 h-44 object-cover rounded-lg flex-shrink-0" src="${podcast.cover}" alt="${podcast.title}">
-        <div class="flex-1">
-          <p class="text-gray-700 mb-3">${podcast.description}</p>
-          <div class="flex flex-wrap gap-2 mb-3">
-            ${podcast.genres.map(g => `
-              <span class="bg-gray-200 text-gray-800 px-3 py-1 rounded-full text-sm">${g}</span>
-            `).join('')}
+      <!-- Cover + Description -->
+      <div class="flex flex-col md:flex-row gap-4 mb-6">
+        <img src="${podcast.cover}" alt="${podcast.title}" 
+          class="w-40 h-40 object-cover rounded">
+        <div>
+          <p class="text-gray-700 mb-2">${podcast.description}</p>
+          <div class="flex flex-wrap gap-2 mb-2">
+            ${podcast.genres.map(g => `<span class="px-2 py-1 text-xs bg-gray-200 rounded">${g}</span>`).join('')}
           </div>
-          <p class="text-sm text-gray-500">Last updated: <em>${formatDateHuman(podcast.lastUpdated)}</em></p>
+          <p class="text-sm text-gray-500">Last updated: ${formatDateHuman(podcast.lastUpdated)}</p>
         </div>
       </div>
 
       <!-- Seasons -->
-      <h3 class="text-xl font-semibold mb-2">Seasons</h3>
+      <h3 class="text-lg font-semibold mb-2">Seasons</h3>
       <ul class="space-y-2">
-        ${podcast.seasons.map((s, i) => `
-          <li class="text-gray-700">
-            <strong>${s.title ?? `Season ${i + 1}`}</strong> — ${s.episodes?.length ?? 0} episodes
-          </li>
-        `).join('')}
+        ${seasonData && seasonData.seasonDetails.length > 0
+          ? seasonData.seasonDetails.map(season => `
+              <li class="p-2 border rounded-md bg-gray-50 flex justify-between">
+                <span class="font-medium">${season.title}</span>
+                <span class="text-sm text-gray-500">${season.episodes} ${season.episodes === 1 ? 'episode' : 'episodes'}</span>
+              </li>
+            `).join('')
+          : `<li class="text-gray-500">No season details available.</li>`}
       </ul>
     </div>
   `;
 
-  // Close handlers
   modal.querySelector('.close').addEventListener('click', onClose);
   modal.querySelector('.modal-backdrop').addEventListener('click', onClose);
 
   return modal;
 }
-
