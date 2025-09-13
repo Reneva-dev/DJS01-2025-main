@@ -1,11 +1,13 @@
 🎙️ PodcastApp
-📝 Project Description
+
+📝 **Project Description**
 
 PodcastApp is a responsive web application that lets users browse, explore, and learn more about podcasts. Users can view podcast previews on a landing page and click on individual podcasts to see detailed information in a modal view, including cover images, descriptions, genres, last updated dates, and season/episode counts.
 
 Built with vanilla JavaScript and Tailwind CSS, this project follows SOLID principles and modular architecture for easy maintenance and scalability.
 
-🛠️ Technologies Used
+
+🛠️ **Technologies Used**
 
 💻 JavaScript (ES6 Modules) – dynamic rendering and app logic
 
@@ -15,7 +17,7 @@ Built with vanilla JavaScript and Tailwind CSS, this project follows SOLID princ
 
 🚀 Live Server – for local development and testing
 
-✨ Features
+✨ **Features**
 📄 Landing Page
 
 Displays a grid of podcast cards
@@ -34,7 +36,7 @@ Each card shows:
 
 ✅ Responsive layout: stacked vertically on mobile, multiple columns on larger screens
 
-🔍 Modal View
+🔍 **Modal View**
 
 Click a podcast card to view detailed info:
 
@@ -52,7 +54,7 @@ Click a podcast card to view detailed info:
 
 ❌ Close modal easily by clicking the X or the backdrop
 
-🧩 Code Architecture
+🧩 **Code Architecture**
 
 🗂️ Modular file structure: components/, utils/, views/
 
@@ -60,23 +62,22 @@ Click a podcast card to view detailed info:
 
 📚 JSDoc comments for functions documenting parameters and return values
 
-⚙️ Setup Instructions
+⚙️ **Setup Instructions**
 
-Clone the repository:
+-Step 1: Clone the repository:
 
 git clone <repository-url>
 
-
-Open the project folder:
+-Step 2: Open the project folder:
 
 cd DJS01-2025-MAIN
 
-
-Open index.html using a Live Server or directly in a browser.
+-Step 3: Open index.html using a Live Server or directly in a browser.
 
 Ensure Tailwind CSS CDN is included for styling.
 
-🚀 Usage
+
+🚀**Usage**
 
 Open the landing page and scroll through the available podcasts.
 
@@ -86,7 +87,7 @@ Read podcast details, including genres, description, and seasons.
 
 Close the modal by clicking the X or the backdrop.
 
-🤝 Interaction Instructions
+🤝 **Interaction Instructions**
 
 The app is fully interactive via mouse or touch.
 
@@ -94,11 +95,8 @@ Cards respond to hover with subtle shadow effects.
 
 Modal stacks content vertically on mobile for readability.
 
-📸 Screenshots / GIFs
 
-(Add screenshots or GIFs showing the landing page and modal view here)
-
-**🚧 Future Improvements
+🚧 **Future Improvements**
 
 🔎 Add search/filter functionality for genres or podcast titles
 
@@ -106,8 +104,11 @@ Modal stacks content vertically on mobile for readability.
 
 🎵 Integrate audio previews
 
-⚠️ Known Issues
+⚠️ **Known Issues***
 
 Mobile image sizing might still require minor tweaks
 
 Season/episode info depends on the provided dataset
+
+Developed by: Reneva Newman
+Note: Podcast data (data.js) provided by CodeSpace Academy
