@@ -1,6 +1,6 @@
 // index.js
 import { podcasts, genres } from './data.js';
-import { createGrid } from './Views/createGrid.js';
+import { createGrid } from './views/createGrid.js';
 import { createModal } from './components/createModal.js';
 import { GenreService } from './utils/GenreService.js';
 
