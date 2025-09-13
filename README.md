@@ -112,4 +112,5 @@ Mobile image sizing might still require minor tweaks
 Season/episode info depends on the provided dataset
 
 Developed by: Reneva Newman
+
 Note: Podcast data (data.js) provided by CodeSpace Academy
