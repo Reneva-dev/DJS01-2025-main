@@ -7,22 +7,24 @@ import { GenreService } from './utils/GenreService.js';
 const listContainer = document.getElementById('podcast-list');
 const modalRoot = document.getElementById('modal-root');
 
-// init service
-const genreService = new GenreService(genres);
-
-// function to open modal
+// helper to open modal
 function openModal(podcast) {
-  // attach genre names to podcast
-  const withGenres = {
-    ...podcast,
-    genres: genreService.getNames(podcast.genres),
-  };
-
-  const modal = createModal(withGenres, () => modalRoot.innerHTML = '');
-  modalRoot.innerHTML = '';
+  const modal = createModal(podcast, () => {
+    modalRoot.innerHTML = '';
+  });
+  modalRoot.innerHTML = ''; // clear before adding
   modalRoot.appendChild(modal);
 }
 
-// render grid
-createGrid(listContainer, podcasts, openModal);
+// enrich podcasts with genre names + normalized structure
+const genreService = new GenreService(genres);
+const enrichedPodcasts = podcasts.map(p => ({
+  ...p,
+  cover: p.image,
+  lastUpdated: p.updated,
+  genres: genreService.getNames(p.genres),
+  seasons: Array.isArray(p.seasons) ? p.seasons : []
+}));
 
+// render grid
+createGrid(listContainer, enrichedPodcasts, openModal);
